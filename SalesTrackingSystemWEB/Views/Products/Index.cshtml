@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Model.ProductsModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2  class="pl-3">List of Products</h2>
+<div class="border-top border-dark my-1"></div>
+<p  class="pl-5 pt-2" >
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table pl-3">
+    <tr>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ProductCategoryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PackRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PackSize)
+        </th>
+        <th colspan="2">Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="d-none">
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unit)
+            </td>
+            <td class="d-none">
+                @Html.DisplayFor(modelItem => item.ProductCategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackSize)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }, new { @class = "btn btn-success" }) 
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="border-top border-dark my-1"></div>

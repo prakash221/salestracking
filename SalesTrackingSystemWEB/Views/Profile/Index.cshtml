@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Model.ProfileModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="pl-3">List of Profile</h2>
+<div class="border-top border-dark my-1"></div>
+<p class="pl-5 pt-2">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table pl-3">
+    <tr>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ProfileId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th colspan="2">Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.ProfileId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProfileId }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProfileId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="border-top border-dark my-1"></div>

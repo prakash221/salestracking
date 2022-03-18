@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Model.TransactionDetailModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="pl-3">List of Transaction Detail </h2>
+<div class="border-top border-dark my-1"></div>
+<p class="pl-5 pt-2" >
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table pl-3">
+    <tr>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.TransactionDetailID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionId)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Units)
+        </th>
+        <th colspan="2">Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.TransactionDetailID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionId)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.ProductId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Units)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.TransactionDetailID }, new { @class = "btn btn-success" }) 
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.TransactionDetailID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="border-top border-dark my-1"></div>

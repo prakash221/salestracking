@@ -1,0 +1,107 @@
+﻿@model Model.ProfileDetailModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 class="pl-3">Add New Profile Detail</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal  pl-4">
+    <hr style="height:1px;border-width:0;color:black;background-color:black">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group d-none">
+        @Html.LabelFor(model => model.ProfileDetailId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProfileDetailId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProfileDetailId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="conatrol-label col-md-2">Profiles </label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.ProfileId, (IEnumerable<SelectListItem>)ViewBag.Profiles, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ProfileId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="conatrol-label col-md-2">Modules </label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.ModuleId, (IEnumerable<SelectListItem>)ViewBag.ModuleDetail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ModuleId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class ="row border border-dark  col-md-10 ml-3 pl-0 mb-2">
+        <div class="form-group col-md-2">
+            @Html.LabelFor(model => model.CreateStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.CreateStatus)
+                    @Html.ValidationMessageFor(model => model.CreateStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-2">
+            @Html.LabelFor(model => model.EditStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.EditStatus)
+                    @Html.ValidationMessageFor(model => model.EditStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-2">
+            @Html.LabelFor(model => model.DeleteStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.DeleteStatus)
+                    @Html.ValidationMessageFor(model => model.DeleteStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-2">
+            @Html.LabelFor(model => model.PrintStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.PrintStatus)
+                    @Html.ValidationMessageFor(model => model.PrintStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-2">
+            @Html.LabelFor(model => model.ViewStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ViewStatus)
+                    @Html.ValidationMessageFor(model => model.ViewStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-info btn-md" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

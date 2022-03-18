@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Model.UserDetailsModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="pl-3">List of User Details</h2>
+<div class="border-top border-dark my-1"></div>
+<p class="pl-5 pt-2" >
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table pl-3">
+    <tr>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.DistributorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DistributorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ProfileId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </th>
+        <th colspan="2">Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.DistributorID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DistributorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileNo)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.ProfileId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.UserId }, new { @class = "btn btn-success" })
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.UserId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="border-top border-dark my-1"></div>

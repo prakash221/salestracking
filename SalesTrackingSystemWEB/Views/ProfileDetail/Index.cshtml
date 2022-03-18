@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Model.ProfileDetailModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class=" pl-3">Edit Profile Detail</h2>
+<div class="border-top border-dark my-1"></div>
+<p  class="pl-5 pt-2">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table pl-3">
+    <tr>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ProfileDetailId)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ProfileId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfileName)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ModuleId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModuleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EditStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeleteStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrintStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ViewStatus)
+        </th>
+        <th colspan="2">Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.ProfileDetailId)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.ProfileId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfileName)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.ModuleId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModuleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EditStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeleteStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrintStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ViewStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProfileDetailId }, new { @class = "btn btn-success" })
+        </td>
+        <td>
+
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProfileDetailId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="border-top border-dark my-1"></div>

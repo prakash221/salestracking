@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ff68e526dc9f4beeab38e806b2de66c7" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="salestrackingModel.Distributor" Width="1.5" PointX="0.75" PointY="4.25" />
+        <EntityTypeShape EntityType="salestrackingModel.District" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="salestrackingModel.ModuleDetail" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="salestrackingModel.ProductCategory" Width="1.5" PointX="1.5" PointY="14" />
+        <EntityTypeShape EntityType="salestrackingModel.Product" Width="1.5" PointX="3.75" PointY="13.25" />
+        <EntityTypeShape EntityType="salestrackingModel.Profile" Width="1.5" PointX="5.75" PointY="7.75" />
+        <EntityTypeShape EntityType="salestrackingModel.ProfileDetail" Width="1.5" PointX="7.75" PointY="7.75" />
+        <EntityTypeShape EntityType="salestrackingModel.Retailer" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="salestrackingModel.Stock" Width="1.5" PointX="6" PointY="4.625" />
+        <EntityTypeShape EntityType="salestrackingModel.Supplier" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="salestrackingModel.Transaction" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="salestrackingModel.TransactionDetail" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="salestrackingModel.UserDetail" Width="1.5" PointX="9.75" PointY="7.75" />
+        <AssociationConnector Association="salestrackingModel.FK_Retailer_Distributor" />
+        <AssociationConnector Association="salestrackingModel.FK_Stock_Distributors" />
+        <AssociationConnector Association="salestrackingModel.FK_Suppliers_Distributors" />
+        <AssociationConnector Association="salestrackingModel.FK_Product_ProductCategory" />
+        <AssociationConnector Association="salestrackingModel.FK_Stock_Products" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

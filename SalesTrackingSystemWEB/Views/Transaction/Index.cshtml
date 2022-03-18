@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Model.TransactionModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2  class="pl-3">List of Transactions</h2>
+<div class="border-top border-dark my-1"></div>
+<p class="pl-5 pt-2">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table pl-3">
+    <tr>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.TransactionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceiverId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceEntryDate)
+        </th>
+        <th colspan="2">Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.TransactionId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiverId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceEntryDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.TransactionId }, new { @class = "btn btn-success" }) 
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.TransactionId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="border-top border-dark my-1"></div>

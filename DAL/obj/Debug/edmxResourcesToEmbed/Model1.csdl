@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="salestrackingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="salestrackingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Distributors" EntityType="salestrackingModel.Distributor" />
+    <EntitySet Name="Districts" EntityType="salestrackingModel.District" />
+    <EntitySet Name="ModuleDetails" EntityType="salestrackingModel.ModuleDetail" />
+    <EntitySet Name="ProductCategories" EntityType="salestrackingModel.ProductCategory" />
+    <EntitySet Name="Products" EntityType="salestrackingModel.Product" />
+    <EntitySet Name="Profiles" EntityType="salestrackingModel.Profile" />
+    <EntitySet Name="ProfileDetails" EntityType="salestrackingModel.ProfileDetail" />
+    <EntitySet Name="Retailers" EntityType="salestrackingModel.Retailer" />
+    <EntitySet Name="Stocks" EntityType="salestrackingModel.Stock" />
+    <EntitySet Name="Suppliers" EntityType="salestrackingModel.Supplier" />
+    <EntitySet Name="Transactions" EntityType="salestrackingModel.Transaction" />
+    <EntitySet Name="TransactionDetails" EntityType="salestrackingModel.TransactionDetail" />
+    <EntitySet Name="UserDetails" EntityType="salestrackingModel.UserDetail" />
+    <AssociationSet Name="FK_Retailer_Distributor" Association="salestrackingModel.FK_Retailer_Distributor">
+      <End Role="Distributor" EntitySet="Distributors" />
+      <End Role="Retailer" EntitySet="Retailers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Distributors" Association="salestrackingModel.FK_Stock_Distributors">
+      <End Role="Distributor" EntitySet="Distributors" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suppliers_Distributors" Association="salestrackingModel.FK_Suppliers_Distributors">
+      <End Role="Distributor" EntitySet="Distributors" />
+      <End Role="Supplier" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductCategory" Association="salestrackingModel.FK_Product_ProductCategory">
+      <End Role="ProductCategory" EntitySet="ProductCategories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_Products" Association="salestrackingModel.FK_Stock_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Distributor">
+    <Key>
+      <PropertyRef Name="DistributorId" />
+    </Key>
+    <Property Name="DistributorId" Type="Int32" Nullable="false" />
+    <Property Name="DistributorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DistrictId" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="Int32" />
+    <Property Name="MobileNo" Type="Int32" />
+    <NavigationProperty Name="Retailers" Relationship="salestrackingModel.FK_Retailer_Distributor" FromRole="Distributor" ToRole="Retailer" />
+    <NavigationProperty Name="Stocks" Relationship="salestrackingModel.FK_Stock_Distributors" FromRole="Distributor" ToRole="Stock" />
+    <NavigationProperty Name="Suppliers" Relationship="salestrackingModel.FK_Suppliers_Distributors" FromRole="Distributor" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="DistrictId" />
+    </Key>
+    <Property Name="DistrictId" Type="Int32" Nullable="false" />
+    <Property Name="DistrictName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ModuleDetail">
+    <Key>
+      <PropertyRef Name="ModuleId" />
+    </Key>
+    <Property Name="ModuleId" Type="Int32" Nullable="false" />
+    <Property Name="ModuleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Controller" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ProductCategoryId" />
+    </Key>
+    <Property Name="ProductCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Products" Relationship="salestrackingModel.FK_Product_ProductCategory" FromRole="ProductCategory" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProductDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Unit" Type="Int32" />
+    <Property Name="ProductCategoryId" Type="Int32" />
+    <Property Name="UnitRate" Type="Int32" />
+    <Property Name="PackRate" Type="Int32" />
+    <Property Name="PackSize" Type="Int32" />
+    <NavigationProperty Name="ProductCategory" Relationship="salestrackingModel.FK_Product_ProductCategory" FromRole="Product" ToRole="ProductCategory" />
+    <NavigationProperty Name="Stocks" Relationship="salestrackingModel.FK_Stock_Products" FromRole="Product" ToRole="Stock" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="ProfileId" />
+    </Key>
+    <Property Name="ProfileId" Type="Int32" Nullable="false" />
+    <Property Name="ProfileName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProfileDetail">
+    <Key>
+      <PropertyRef Name="ProfileDetailId" />
+    </Key>
+    <Property Name="ProfileDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProfileId" Type="Int32" Nullable="false" />
+    <Property Name="ModuleId" Type="Int32" Nullable="false" />
+    <Property Name="CreateStatus" Type="Boolean" Nullable="false" />
+    <Property Name="EditStatus" Type="Boolean" Nullable="false" />
+    <Property Name="DeleteStatus" Type="Boolean" Nullable="false" />
+    <Property Name="PrintStatus" Type="Boolean" Nullable="false" />
+    <Property Name="ViewStatus" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Retailer">
+    <Key>
+      <PropertyRef Name="RetailerId" />
+    </Key>
+    <Property Name="RetailerId" Type="Int32" Nullable="false" />
+    <Property Name="RetailerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DistributorId" Type="Int32" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="Int32" />
+    <Property Name="MobileNo" Type="Int32" />
+    <NavigationProperty Name="Distributor" Relationship="salestrackingModel.FK_Retailer_Distributor" FromRole="Retailer" ToRole="Distributor" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="StockID" />
+    </Key>
+    <Property Name="StockID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="DistributorID" Type="Int32" Nullable="false" />
+    <Property Name="StockQuantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Distributor" Relationship="salestrackingModel.FK_Stock_Distributors" FromRole="Stock" ToRole="Distributor" />
+    <NavigationProperty Name="Product" Relationship="salestrackingModel.FK_Stock_Products" FromRole="Stock" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DistributorID" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Distributor" Relationship="salestrackingModel.FK_Suppliers_Distributors" FromRole="Supplier" ToRole="Distributor" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="Int32" Nullable="false" />
+    <Property Name="TransactionLevel" Type="Int16" />
+    <Property Name="SupplierId" Type="Int32" />
+    <Property Name="ReceiverId" Type="Int32" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+    <Property Name="InvoiceEntryDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="TransactionDetail">
+    <Key>
+      <PropertyRef Name="TransactionDetailID" />
+    </Key>
+    <Property Name="TransactionDetailID" Type="Int32" Nullable="false" />
+    <Property Name="TransactionId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Units" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserDetail">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DistributorID" Type="Int32" Nullable="false" />
+    <Property Name="MobileNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProfileId" Type="Int32" Nullable="false" />
+    <Property Name="EmailId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Retailer_Distributor">
+    <End Type="salestrackingModel.Distributor" Role="Distributor" Multiplicity="0..1" />
+    <End Type="salestrackingModel.Retailer" Role="Retailer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distributor">
+        <PropertyRef Name="DistributorId" />
+      </Principal>
+      <Dependent Role="Retailer">
+        <PropertyRef Name="DistributorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Distributors">
+    <End Type="salestrackingModel.Distributor" Role="Distributor" Multiplicity="1" />
+    <End Type="salestrackingModel.Stock" Role="Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distributor">
+        <PropertyRef Name="DistributorId" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="DistributorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suppliers_Distributors">
+    <End Type="salestrackingModel.Distributor" Role="Distributor" Multiplicity="0..1" />
+    <End Type="salestrackingModel.Supplier" Role="Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distributor">
+        <PropertyRef Name="DistributorId" />
+      </Principal>
+      <Dependent Role="Supplier">
+        <PropertyRef Name="DistributorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductCategory">
+    <End Type="salestrackingModel.ProductCategory" Role="ProductCategory" Multiplicity="0..1" />
+    <End Type="salestrackingModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="ProductCategoryId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_Products">
+    <End Type="salestrackingModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="salestrackingModel.Stock" Role="Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

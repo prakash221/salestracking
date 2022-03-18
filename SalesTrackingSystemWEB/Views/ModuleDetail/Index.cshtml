@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Model.ModuleDetailModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="pl-3">List of Module Detail</h2>
+<div class="border-top border-dark my-1"></div>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table pl-3">
+    <tr>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ModuleId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModuleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Controller)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Action)
+        </th>
+        <th colspan="2">Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.ModuleId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModuleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Controller)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Action)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ModuleId }, new { @class = "btn btn-success" }) 
+        
+            @Html.ActionLink("Delete", "Delete", new { id = item.ModuleId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="border-top border-dark my-1"></div>

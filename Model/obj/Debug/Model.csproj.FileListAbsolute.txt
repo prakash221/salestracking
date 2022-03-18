@@ -1,0 +1,11 @@
+D:\3rdsemester\shiva sir\SalesTracking\Model\bin\Debug\Model.dll
+D:\3rdsemester\shiva sir\SalesTracking\Model\bin\Debug\Model.pdb
+D:\3rdsemester\shiva sir\SalesTracking\Model\obj\Debug\Model.csprojAssemblyReference.cache
+D:\3rdsemester\shiva sir\SalesTracking\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\3rdsemester\shiva sir\SalesTracking\Model\obj\Debug\Model.dll
+D:\3rdsemester\shiva sir\SalesTracking\Model\obj\Debug\Model.pdb
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\Model\bin\Debug\Model.dll
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\Model\bin\Debug\Model.pdb
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\Model\obj\Debug\Model.dll
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\Model\obj\Debug\Model.pdb

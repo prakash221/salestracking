@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Model.SupplierModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="pl-3">List of Supplier</h2>
+<div class="border-top border-dark my-1"></div>
+<p class="pl-5 pt-2">
+    @Html.ActionLink("Add New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table pl-3">
+    <tr>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.SupplierID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplierName)
+        </th>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.DistributorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DistributorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </th>
+        <th colspan="2">Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.SupplierID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierName)
+        </td>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.DistributorID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DistributorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileNo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.SupplierID  }, new { @class = "btn btn-success" }) 
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.SupplierID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="border-top border-dark my-1"></div>

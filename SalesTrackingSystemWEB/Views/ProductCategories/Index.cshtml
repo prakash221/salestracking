@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Model.ProductcategoriesModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2  class="pl-3">List of Product Categories</h2>
+<div class="border-top border-dark my-1"></div>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table pl-3">
+    <tr>
+        <th class="d-none">
+            @Html.DisplayNameFor(model => model.ProductCategoryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th colspan="2">Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="d-none">
+            @Html.DisplayFor(modelItem => item.ProductCategoryId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProductCategoryId }, new { @class = "btn btn-success" }) 
+
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductCategoryId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="border-top border-dark my-1"></div>

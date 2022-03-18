@@ -1,0 +1,23 @@
+D:\3rdsemester\shiva sir\SalesTracking\DAL\bin\Debug\DAL.dll.config
+D:\3rdsemester\shiva sir\SalesTracking\DAL\bin\Debug\DAL.dll
+D:\3rdsemester\shiva sir\SalesTracking\DAL\bin\Debug\DAL.pdb
+D:\3rdsemester\shiva sir\SalesTracking\DAL\bin\Debug\EntityFramework.dll
+D:\3rdsemester\shiva sir\SalesTracking\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\3rdsemester\shiva sir\SalesTracking\DAL\bin\Debug\EntityFramework.xml
+D:\3rdsemester\shiva sir\SalesTracking\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\3rdsemester\shiva sir\SalesTracking\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\3rdsemester\shiva sir\SalesTracking\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\3rdsemester\shiva sir\SalesTracking\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\3rdsemester\shiva sir\SalesTracking\DAL\obj\Debug\DAL.dll
+D:\3rdsemester\shiva sir\SalesTracking\DAL\obj\Debug\DAL.pdb
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\DAL\bin\Debug\DAL.dll.config
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\DAL\bin\Debug\DAL.dll
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\DAL\bin\Debug\DAL.pdb
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\DAL\bin\Debug\EntityFramework.dll
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\DAL\bin\Debug\EntityFramework.xml
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\DAL\obj\Debug\DAL.dll
+E:\3rd semester\Advance programming\SalesTracking\SalesTracking\DAL\obj\Debug\DAL.pdb
